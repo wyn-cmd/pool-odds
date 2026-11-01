@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pool-odds"
+version = "0.1.0"
+description = "Exact probabilities for dice pools with keep highest, keep lowest and exploding dice"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = ["dice", "probability", "tabletop", "rpg", "statistics"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Topic :: Games/Entertainment :: Role-Playing",
+]
+
+[project.scripts]
+pool-odds = "pool_odds.cli:main"
+
+[tool.setuptools]
+packages = ["pool_odds"]
