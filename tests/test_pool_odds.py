@@ -68,10 +68,12 @@ class KeepTests(unittest.TestCase):
         self.assertEqual(d.pool(3, 8, keep=3), d.pool(3, 8))
 
     def test_bad_keep_size_rejected(self):
+        # pool size is smaller than keep count
+        # expect value error when keep is greater than dice count
         with self.assertRaises(ValueError):
             d.pool(2, 6, keep=3)
-
-
+        with self.assertRaises(ValueError):
+            d.pool(2, 6, keep=0)
 class ExplodeTests(unittest.TestCase):
     def test_mass_is_exactly_one(self):
         self.assertEqual(d.total(d.explode(6)), 1)
